@@ -45,7 +45,7 @@ class CallController extends Controller
             $encodedSalesPhone = urlencode(str_replace(' ','', '+79248775690'));
             // Create authenticated REST client using account credentials in
             // <project root dir>/.env.php
-            $client = new \Twilio\Rest\Client($this->SID, $this->TOKEN);
+            $client = new \Twilio\Rest\Client("AC468958608cd6496d2215636fcc2b4a33", "6105192f2fe9f425c0a60112e753e53f");
 
             try {
                 $client->calls->create(
