@@ -10,8 +10,8 @@ use yii\web\Controller;
 
 class CallController extends Controller
 {
-    private $SID = "AC468958608cd6496d2215636fcc2b4a33";
-    private $TOKEN = "6105192f2fe9f425c0a60112e753e53f";
+    const SID = "AC468958608cd6496d2215636fcc2b4a33";
+    const TOKEN = "6105192f2fe9f425c0a60112e753e53f";
 
     public function actionMake($to)
     {
@@ -19,7 +19,7 @@ class CallController extends Controller
             // My number: (424) 377-1271
             // safe code: j49f5YVURunFSosp8v5cqUB1xLxF_DXt1uKulSy2
 
-            $client = new \Twilio\Rest\Client($this->SID, $this->TOKEN);
+            $client = new \Twilio\Rest\Client(self::SID, self::TOKEN);
 
             // Read TwiML at this URL when a call connects (hold music)
             $call = $client->calls->create(
@@ -45,7 +45,7 @@ class CallController extends Controller
             $encodedSalesPhone = urlencode(str_replace(' ','', '+79248775690'));
             // Create authenticated REST client using account credentials in
             // <project root dir>/.env.php
-            $client = new \Twilio\Rest\Client("AC468958608cd6496d2215636fcc2b4a33", "6105192f2fe9f425c0a60112e753e53f");
+            $client = new \Twilio\Rest\Client(self::SID, self::TOKEN);
 
             try {
                 $client->calls->create(
